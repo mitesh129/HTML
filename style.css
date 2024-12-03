@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000a1;
+    position: absolute;
+    z-index: 999;
+}
+
+.loader {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 6px solid #bbb;
+    border-top: 6px solid #ff0000;
+    animation: rotate 1s infinite linear;
+}
+
+.loading p {
+    font-size: 2rem;
+}
+
+.loading p::after {
+    content: 'Loading...';
+    color: #fff;
+    font-size: 2rem;
+    animation: dot 1s infinite linear;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    min-height: 400px;
+    width: 700px;
+    max-width: 800px;
+    background: #333;
+    color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-header {
+    background: #123;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-body {
+    padding: 20px;
+    font-size: 17px;
+}
+
+.card-body p {
+    margin-bottom: 20px;
+}
+
+.card-body p:nth-child(1) {
+    color: #11ff00;
+}
+
+.card-body p:nth-child(2) {
+    color: #ffff00;
+}
+
+.card-body p:nth-child(3) {
+    color: #00ffcc;
+}
+
+.card-footer {
+    padding: 10px;
+    position: fixed;
+    bottom: 130px;
+    opacity: 0;
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.card:hover .card-footer {
+    bottom: 180px;
+    opacity: 1;
+    color: #fff;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dot {
+    0% {
+        content: 'Loading';
+    }
+
+    30% {
+        content: 'Loading.';
+    }
+
+    60% {
+        content: 'Loading..';
+    }
+
+    90% {
+        content: 'Loading...';
+    }
+}
+
+@media (max-width: 360px) {
+    .card {
+        min-height: 600px;
+    }
+
+    .card:hover .card-footer {
+        bottom: 70px;
+    }
+
+}
